@@ -517,7 +517,7 @@
     echo apply_filters( 'my_hook_filter', 'Приставка' );
 
     remove_filter( 'my_hook_filter', 'my_filter_function', 10);
-    echo apply_filters( 'my_hook_filter', 'Приставка' );
+    echo apply_filters( 'my_hook_filter', 'Приставка просто' );
 
 
 
