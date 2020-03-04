@@ -40,14 +40,13 @@
                             <div class="header__contacts-item">
                                 <img src="<?php echo bloginfo('template_url'); ?>/assets/img/icons/svg/phone.svg" alt="телефон" class="header__contacts-logo">
                                 <div class="header__contacts-tel">
-                                    <a href="tel:+797867834347">+797867834347</a>
-                                    <a href="tel:+797867834358">+797867834358</a>
+                                    <a href="tel:<?php the_field('tel_top'); ?>"><?php the_field('tel_top'); ?></a>
+                                    <a href="tel:<?php the_field('tel_buttom'); ?>"><?php the_field('tel_buttom'); ?></a>
                                 </div>
                             </div>
                             <div class="header__contacts-item">
                                 <img src="<?php echo bloginfo('template_url'); ?>/assets/img/icons/svg/pointer.svg" alt="указатель" class="header__contacts-logo">
-                                <address>ул. Василисы Кожиной, 1<br>
-                                    Москва, Россия, 121096</address>
+                                <address><?php the_field('adress'); ?></address>
                             </div>
                         </div>
                     </div>

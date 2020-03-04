@@ -13,6 +13,17 @@ function childhood_scripts(){
 add_theme_support( 'custom-logo' );
 
 
-
+//скрываем визуальный редактор для шаблона главной страницы start
+function wph_hide_editor() {
+    $post_id = $_GET['post'] ? $_GET['post'] : $_POST['post_ID'] ;
+    if(!isset($post_id)) return;
+ 
+    $template_file = get_post_meta($post_id, '_wp_page_template', true);
+    if($post_id == 2){ 
+        remove_post_type_support('page', 'editor', 'author', 'comments', 'page-attributes');
+    }
+}
+add_action('admin_init', 'wph_hide_editor');
+//скрываем визуальный редактор для шаблона главной страницы end
 
 ?>
