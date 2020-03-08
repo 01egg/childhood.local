@@ -68,7 +68,7 @@
                                     </button>
                                 </div>
                             </li>
-                        <?php
+                <?php
                     }
 
                     wp_reset_postdata(); // сброс
@@ -120,68 +120,55 @@
 
         <div class="toys" id="toys">
             <div class="container">
-                <h2 class="subtitle">Мягкие игрушки</h2>
+                <h2 class="subtitle"><?php the_field('toys_ttl-1'); ?></h2>
                 <div class="toys__wrapper">
-                    <div class="toys__item" style="background-image: url(<?php echo bloginfo('template_url'); ?>/assets/img/toy_1.jpg)">
-                        <div class="toys__item-info">
-                            <div class="toys__item-title">Плюшевые медведи</div>
-                            <div class="toys__item-descr">
-                                Классика. Должен быть у каждого ребенка!                            
-                            </div>
-                            <div class="minibutton toys__trigger">Подробнее</div>
-                        </div>
-                    </div>
 
-                    <div class="toys__item" style="background-image: url(<?php echo bloginfo('template_url'); ?>/assets/img/toy_2.jpg)">
-                        <div class="toys__item-info">
-                            <div class="toys__item-title">Совенок</div>
-                            <div class="toys__item-descr">
-                                Хотите, чтобы ваш ребенок был под защитой даже ночью? Купите ему совенка!
-                            </div>
-                            <div class="minibutton toys__trigger">Подробнее</div>
-                        </div>
-                    </div>
+                <?php 
+                
+                    // параметры по умолчанию
+                    $posts = get_posts( array(
+                        'numberposts' => -1, //Значение выводит все слайды
+                        'category_name'    => 'soft_toys',//Устанавливаем категорию
+                        'orderby'     => 'date',
+                        'order'       => 'ASC',//Прямой это ASC
+                        'post_type'   => 'post',
+                        'suppress_filters' => true, // подавление работы фильтров изменения SQL запроса
+                    ) );
 
-                    <div class="toys__item" style="background-image: url(<?php echo bloginfo('template_url'); ?>/assets/img/toy_3.jpg)">
-                        <div class="toys__item-info">
-                            <div class="toys__item-title">Кролики</div>
-                            <div class="toys__item-descr">
-                            Кролики бывают разные... Но все они необычайно милые!</div>
-                            <div class="minibutton toys__trigger">Подробнее</div>
-                        </div>
-                    </div>
+                    foreach( $posts as $post ){
+                        setup_postdata($post);
+                        // формат вывода the_title() ...
+                ?>
 
-                    <div class="toys__item" style="background-image: url(<?php echo bloginfo('template_url'); ?>/assets/img/toy_4.jpg)">
-                        <div class="toys__item-info">
-                            <div class="toys__item-title">Гибкие</div>
-                            <div class="toys__item-descr">
-                                Кстати, у нас большой выбор игрушек, позу которых выбирает сам ребенок. (Долговечные. Ноги-руки не отламываются)                          
-                            </div>
-                            <div class="minibutton toys__trigger">Подробнее</div>
+                <div class="toys__item" style="background-image: url(<?php 
+                
+                if( has_post_thumbnail() ){
+                    the_post_thumbnail_url();
+                } else {
+                    echo get_template_directory_uri() . '/assets/img/not-found.jpg';
+                }
+                 
+                
+                ?>)">
+                    <div class="toys__item-info">
+                        <div class="toys__item-title"><?php the_title(); ?></div>
+                        <div class="toys__item-descr">
+                            <?php the_field('toys_descr'); ?>                            
                         </div>
+                        <div class="minibutton toys__trigger">Подробнее</div>
                     </div>
-                    <div class="toys__item" style="background-image: url(<?php echo bloginfo('template_url'); ?>/assets/img/toy_5.jpg)">
-                        <div class="toys__item-info">
-                            <div class="toys__item-title">Персонажи</div>
-                            <div class="toys__item-descr">
-                                Ваш ребенок без ума от персонажа мультика? Мы следим за всеми трендами и рады предложить как самых современных, так и персонажей "из нашего детства"                          
-                            </div>
-                            <div class="minibutton toys__trigger">Подробнее</div>
-                        </div>
-                    </div>
-                    <div class="toys__item" style="background-image: url(<?php echo bloginfo('template_url'); ?>/assets/img/toy_6.jpg)">
-                        <div class="toys__item-info">
-                            <div class="toys__item-title">Необычные</div>
-                            <div class="toys__item-descr">
-                                Хотите, чтобы вашему ребенку все завидовали? Подарите игрушки нашего собственного производства! Они уникальны и ваш ребенок будет гордым обладателем эксклюзива!
-                            </div>
-                            <div class="minibutton toys__trigger">Подробнее</div>
-                        </div>
-                    </div>
+                </div>
+                <?php
+                    }
+
+                    wp_reset_postdata(); // сброс
+                
+                ?>
+
                 </div>
 
 
-                <h2 class="subtitle">Развивающие игрушки</h2>
+                <h2 class="subtitle"><?php the_field('toys_ttl-2'); ?></h2>
                 <div class="toys__wrapper">
 
                     <div class="toys__item" style="background-image: url(<?php echo bloginfo('template_url'); ?>/assets/img/toy_7.jpg)">
@@ -208,7 +195,7 @@
                 <div class="row">
                     <div class="col-lg-10 offset-lg-1">
                         <div class="toys__alert">
-                            <span>Не нашли то, что искали?</span> Свяжитесь с нами - и мы с радостью создадим любую игрушку по вашему желанию. Вы можете выбрать все: размер, материал, формы...!
+                            <span><?php the_field('toys_descr-weight'); ?></span> <?php the_field('toys_descr'); ?>
                         </div>
                     </div>
                 </div>
