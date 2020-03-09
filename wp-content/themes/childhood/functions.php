@@ -4,6 +4,9 @@ add_action('wp_enqueue_scripts', 'childhood_scripts');
 
 function childhood_styles(){
     wp_enqueue_style( 'childhood-style', get_stylesheet_uri() );
+    wp_deregister_script('juqery');
+    wp_register_script('juqery', 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js');
+    wp_enqueue_script('juqery');
 }
 
 function childhood_scripts(){
@@ -26,5 +29,12 @@ function wph_hide_editor() {
 }
 add_action('admin_init', 'wph_hide_editor');
 //скрываем визуальный редактор для шаблона главной страницы end
+
+function my_acf_google_map_api( $api ){
+    $api['key'] = 'AIzaSyBp_lJJBRfJpfgaylfH5UUz48yHhZqvtVc';
+    return $api;
+}
+add_filter('acf/fields/google_map/api', 'my_acf_google_map_api');
+
 
 ?>

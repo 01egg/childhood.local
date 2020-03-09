@@ -276,7 +276,8 @@
                         </div>
                     </div>
                     <div class="col-lg-6">
-                        <div id="map" class="contacts__map">
+                        <div class="contacts__map">
+                        <?php echo do_shortcode( '[yamap center="55.742817,37.492098" height="100%" controls="" zoom="17" type="yandex#map" scrollzoom="0" mobiledrag="0"][yaplacemark name="Мир Детства" coord="55.742817,37.492098" icon="islands#blueCircleDotIcon" color="#e61034"][/yamap]' ) ?>
                         </div>
                     </div>
                 </div>
