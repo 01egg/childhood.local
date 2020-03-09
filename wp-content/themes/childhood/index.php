@@ -171,25 +171,42 @@
                 <h2 class="subtitle"><?php the_field('toys_ttl-2'); ?></h2>
                 <div class="toys__wrapper">
 
-                    <div class="toys__item" style="background-image: url(<?php echo bloginfo('template_url'); ?>/assets/img/toy_7.jpg)">
+                <?php
+                // параметры по умолчанию
+                    $posts = get_posts( array(
+                    'numberposts' => -1, //Значение выводит все слайды
+                    'category_name' => 'edu_toys', //Устанавливаем категорию
+                    'orderby' => 'date', //Сортируем по дате добавления
+                    'order' => 'ASC',//Прямой это ASC
+                    'post_type' => 'post', //Публикуем, а не получаем
+                    'suppress_filters' => true, // подавление работы фильтров изменения SQL запроса
+                    ) );
+                    foreach( $posts as $post ){
+                    setup_postdata($post);
+                ?>
+                <!-- Тут код -->
+                <div class="toys__item" style="background-image: url(<?php 
+
+                    if( has_post_thumbnail() ){
+                        the_post_thumbnail_url();
+                    } else {
+                        echo get_template_directory_uri() . '/assets/img/not-found.jpg';
+                    } 
+                
+                ?>)">
                         <div class="toys__item-info">
-                            <div class="toys__item-title">Воздушный змей</div>
+                            <div class="toys__item-title"><?php the_title(); ?></div>
                             <div class="toys__item-descr">
-                                Кто в детстве не хотел научиться летать? А змей поможет поймать ветер и унести все заботы далеко-далеко...    
+                            <?php the_field('toys_descr'); ?>    
                             </div>
                             <div class="minibutton toys__trigger">Подробнее</div>
                         </div>
                     </div>
 
-                    <div class="toys__item" style="background-image: url(<?php echo bloginfo('template_url'); ?>/assets/img/toy_8.jpg)">
-                        <div class="toys__item-info">
-                            <div class="toys__item-title">Музыкальные</div>
-                            <div class="toys__item-descr">
-                                Попробуйте заинтересовать ребенка музыкой! Может в нем таится будущий Джаред Лето!
-                            </div>
-                            <div class="minibutton toys__trigger">Подробнее</div>
-                        </div>
-                    </div>
+                <?php
+                }
+                wp_reset_postdata(); // сброс
+                ?>
 
                 </div>
                 <div class="row">
@@ -462,36 +479,37 @@
                 </div>
                 <div class="row mt70">
                     <div class="col-lg-8 offset-lg-2">
-                        <div class="title">отзывы</div>
+                        <div class="title"><?php the_field('reviews_ttl'); ?></div>
                         <div class="feedslider glide">
                             <div class="glide__track" data-glide-el="track">
                                 <ul class="glide__slides">
-                                    <li class="glide__slide">
+                                    <?php
+                                    // параметры по умолчанию
+                                        $posts = get_posts( array(
+                                        'numberposts' => -1, //Значение выводит все слайды
+                                        'category_name' => 'reviews', //Устанавливаем категорию
+                                        'orderby' => 'date', //Сортируем по дате добавления
+                                        'order' => 'ASC',//Прямой это ASC
+                                        'post_type' => 'post', //Публикуем, а не получаем
+                                        'suppress_filters' => true, // подавление работы фильтров изменения SQL запроса
+                                        ) );
+                                        foreach( $posts as $post ){
+                                        setup_postdata($post);
+                                    ?>
+                                        <!-- Тут код -->
+                                        <li class="glide__slide">
                                         <div class="feedslider__title">
-                                            Иванов Игорь
+                                        <?php the_field('reviews_name'); ?>
                                         </div>
                                         <div class="feedslider__text">
-                                            Спасибо огромное за вежливость и терпение. Обратился к вам только с идеей для подарка, а вы развили её до полноценного проекта! Так что мой сын теперь круглые сутки играет с железной дорогой, построенной по его планам)
-                                            <br><br>
-                                            Отдельное спасибо менеджеру Маргарите за терпение и стойкость!
+                                        <?php the_field('reviews_text'); ?>
                                         </div>
                                     </li>
-                                    <li class="glide__slide">
-                                        <div class="feedslider__title">
-                                            Черкессов Алексей Дмитриевич
-                                        </div>
-                                        <div class="feedslider__text">
-                                            Заказывал у ребят целую партию игрушек для детского сада. Новый год прошел на ура! Теперь все детишки счастливы и не расстаются со своими подарками, а самые хитрые спрашивают когда следующие праздники)
-                                        </div>
-                                    </li>
-                                    <li class="glide__slide">
-                                        <div class="feedslider__title">
-                                            Анна Сергеевна
-                                        </div>
-                                        <div class="feedslider__text">
-                                            Решила к дню рождения своей малышки заказать подарки здесь. И ни сколько не жалею! Мишка именно такой, как я хотела, прямо как у меня в детстве: мягкий, приятный на ощупь и оочень милый. Сразу видно, что ручная работа.
-                                        </div>
-                                    </li>
+                                    <?php
+                                        }
+                                        wp_reset_postdata(); // сброс
+                                    ?>
+
                                 </ul>
                             </div>
 
