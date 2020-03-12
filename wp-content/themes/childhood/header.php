@@ -40,13 +40,13 @@
                             <div class="header__contacts-item">
                                 <img src="<?php echo bloginfo('template_url'); ?>/assets/img/icons/svg/phone.svg" alt="телефон" class="header__contacts-logo">
                                 <div class="header__contacts-tel">
-                                    <a href="tel:<?php the_field('tel_top'); ?>"><?php the_field('tel_top'); ?></a>
-                                    <a href="tel:<?php the_field('tel_buttom'); ?>"><?php the_field('tel_buttom'); ?></a>
+                                    <a href="tel:<?php the_field('tel_top'); ?>"><?php the_field('tel_top', 2); ?></a>
+                                    <a href="tel:<?php the_field('tel_buttom'); ?>"><?php the_field('tel_buttom', 2); ?></a>
                                 </div>
                             </div>
                             <div class="header__contacts-item">
                                 <img src="<?php echo bloginfo('template_url'); ?>/assets/img/icons/svg/pointer.svg" alt="указатель" class="header__contacts-logo">
-                                <address><?php the_field('adress'); ?></address>
+                                <address><?php the_field('adress', 2); ?></address>
                             </div>
                         </div>
                     </div>

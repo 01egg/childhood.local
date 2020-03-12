@@ -25,16 +25,16 @@
                     <div class="col-md-4 col-lg-3">
                         <div class="footer__social">
                             <div class="footer__social-item">
-                            <?php the_field('social_block_ttl'); ?>
+                            <?php the_field('social_block_ttl', 2); ?>
                             </div>
                             <a href="<?php the_field('social_block_inst_url'); ?>" class="footer__social-item">
-                                <img src="<?php the_field('social_block_inst_icon'); ?>" alt="Instagram Icon">
+                                <img src="<?php the_field('social_block_inst_icon', 2); ?>" alt="Instagram Icon">
                             </a>
-                            <a href="<?php the_field('social_block_fb_url'); ?>" class="footer__social-item">
-                            <img src="<?php the_field('social_block_fb_icon'); ?>" alt="Facebook Icon">
+                            <a href="<?php the_field('social_block_fb_url', 2); ?>" class="footer__social-item">
+                            <img src="<?php the_field('social_block_fb_icon', 2); ?>" alt="Facebook Icon">
                             </a>
-                            <a href="<?php the_field('social_block_yt_url'); ?>" class="footer__social-item">
-                            <img src="<?php the_field('social_block_yt_icon'); ?>" alt="facebook Icon">
+                            <a href="<?php the_field('social_block_yt_url', 2); ?>" class="footer__social-item">
+                            <img src="<?php the_field('social_block_yt_icon', 2); ?>" alt="facebook Icon">
                             </a>
                         </div>
                     </div>
@@ -43,13 +43,13 @@
                             <div class="footer__contacts-item">
                                 <img src="<?php echo bloginfo('template_url'); ?>/assets/img/icons/svg/phone.svg" alt="телефон" class="footer__contacts-logo">
                                 <div class="footer__contacts-tel">
-                                    <a href="tel:<?php the_field('tel_top'); ?>"><?php the_field('tel_top'); ?></a>
-                                    <a href="tel:<?php the_field('tel_buttom'); ?>"><?php the_field('tel_buttom'); ?></a>
+                                    <a href="tel:<?php the_field('tel_top', 2); ?>"><?php the_field('tel_top', 2); ?></a>
+                                    <a href="tel:<?php the_field('tel_buttom', 2); ?>"><?php the_field('tel_buttom', 2); ?></a>
                                 </div>
                             </div>
                             <div class="footer__contacts-item">
                                 <img src="<?php echo bloginfo('template_url'); ?>/assets/img/icons/svg/pointer.svg" alt="указатель" class="footer__contacts-logo">
-                                <address><?php the_field('adress'); ?></address>
+                                <address><?php the_field('adress', 2); ?></address>
                             </div>
                         </div>
                     </div>
