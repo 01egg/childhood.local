@@ -128,8 +128,8 @@
                                 </div>
                             </div>
                             <div class="contacts__mail">
-                            <?php the_field('contact_us_mailus_ttl'); ?>
-                                <a href="mailto:mirdetstva@gmail.com"><?php the_field('mail'); ?></a>
+                            <?php the_field('contact_us_mailus_ttl', 2); ?>
+                                <a href="mailto:mirdetstva@gmail.com"><?php the_field('mail', 2); ?></a>
                             </div>
                         </div>
                     </div>
